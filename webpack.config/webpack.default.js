@@ -108,5 +108,6 @@ module.exports = {
                 warnings: false, //eslint警告不用阻断代码流程
             }
         },
+        historyApiFallback: true //解决单页面路由问题
     }
 };
