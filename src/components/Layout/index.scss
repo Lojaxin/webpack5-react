@@ -1,0 +1,52 @@
+.jx-layout {
+    width: 100vw;
+    min-width: 980px;
+    height: 100vh;
+    // background-image: url(../../../public/bgi.jpg);
+    background-color: #f2f4f8; // #f5f9fe
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+
+.jx-header-wapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.jx-header {
+    height: 77px;
+    width: 980px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .left {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .right {
+        cursor: pointer;
+        color: #3875f6;
+    }
+}
+
+.jx-content {
+    height: calc(100vh - 137px);
+    overflow-y: auto;
+}
+
+.jx-footer {
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+    color: #fff;
+    background-color: #273148;
+}

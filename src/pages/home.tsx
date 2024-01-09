@@ -1,67 +1,49 @@
 import React from 'react';
-import { Button, Form, Input } from 'antd';
-import { DynamicTable } from 'Src/components';
+import { Carousel } from 'antd';
+import banner from '../../public/banner.jpg';
+import trendsUser from './config';
+import './index.scss';
 
-const Demo = () => {
+type Trends = {
+    name: string;
+    value: string;
+}
 
-    const [form] = Form.useForm();
-
-    const mycolumns = (operation) => {
-        return [{
-            title: '名字',
-            dataIndex: 'name',
-            render: (value, row) => {
-                return (
-                    <Form.Item {...row.yKey} name={[row.yKey.name, 'chargeType']} rules={[{ required: true, message: '请选择费用名称' }]}>
-                        <Input />
-                    </Form.Item>
-                );
-            }
-        }, {
-            title: '操作',
-            dataIndex: 'control',
-            width: 120,
-            editable: true,
-            render: (__, record, index) => {
-                return (
-                    <>
-                        <Button
-                            onClick={() => {
-                                operation.remove(index);
-                            }}>
-                            删除
-                        </Button>
-                        <Button
-                            onClick={() => {
-                                operation.copy(index, ['id']);
-                            }}
-                        >
-                            复制
-                        </Button>
-                    </>
-                );
-            }
-        }];
-    };
-
-    const handleClick = () => {
-        // console.log(form.getFieldsValue());
-        const value = [{
-            chargeType: 123
-        }, {
-            chargeType: 456
-        }];
-        form.setFields([{ name: 'dynamic-table', value: value }]);
-    };
-
+const Home = () => {
     return (
-        <div>
-            <Button onClick={handleClick}>设置列表</Button>
-            <Form form={form}>
-                <DynamicTable columns={mycolumns} name="dynamic-table" form={form} />
-            </Form>
+        <div className="home-content">
+            <img src={banner} className="banner-img" />
+            <div className="text-content">
+                <div className="text-content-wapper">
+                    {/* <p style={{ marginLeft: '36%' }}>专业的团队</p> */}
+                    <p style={{ textAlign: 'center', margin: '8px 0' }}>为您提供更便捷的服务</p>
+                    <div className="carousel-body">
+                        <div className="carousel-body-wapper">
+
+                            <Carousel dotPosition={'right'} autoplay infinite autoplaySpeed={1600}>
+                                {
+                                    trendsUser.map((item, index) => (
+                                        <div className="carousel-page" key={index}>
+                                            {
+                                                item.map((child: Trends) => (
+                                                    <div key={child.name} className="carousel-row">
+                                                        <div>{child.name}</div>
+                                                        <div> {child.value}</div>
+                                                    </div>
+                                                ))
+                                            }
+
+                                        </div>
+                                    ))
+                                }
+                            </Carousel>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
 
-export default Demo;
+export default Home;
