@@ -1,6 +1,6 @@
 import React from 'react';
 import { Carousel } from 'antd';
-import banner from '../../public/banner.jpg';
+import banner from '../../../public/banner.jpg';
 import trendsUser from './config';
 import './index.scss';
 
@@ -12,7 +12,9 @@ type Trends = {
 const Home = () => {
     return (
         <div className="home-content">
-            <img src={banner} className="banner-img" />
+            <div className="banner-body">
+                <img src={banner} className="banner-img" />
+            </div>
             <div className="text-content">
                 <div className="text-content-wapper">
                     {/* <p style={{ marginLeft: '36%' }}>专业的团队</p> */}

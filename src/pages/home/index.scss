@@ -2,8 +2,14 @@
     height: 500px;
     position: relative;
 
-    .banner-img {
+    .banner-body {
         width: 100%;
+        background-color: #0e1d4f;
+        text-align: center;
+    }
+
+    .banner-img {
+        width: 980px;
     }
 
     .text-content {
